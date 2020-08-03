@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="corePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.ControllerGameWindow">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/black.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="playerNameText" fill="WHITE" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kajor's turn" textAlignment="CENTER" wrappingWidth="1280.0">
+         <font>
+            <Font name="TrajanPro-Bold" size="50.0" />
+         </font>
+      </Text>
+      <Text fx:id="subtitle" fill="WHITE" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you ready to roll?" textAlignment="CENTER" wrappingWidth="1280.0">
+         <font>
+            <Font name="TrajanPro-Regular" size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="goButton" contentDisplay="CENTER" layoutX="505.0" layoutY="635.0" mnemonicParsing="false" onAction="#startTurn" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Go!" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="TrajanPro-Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="escMenuButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="1224.0" layoutY="14.0" mnemonicParsing="false" onAction="#displayEscMenu" onMouseEntered="#OMEnterEsc" onMouseExited="#OMExitEsc" prefHeight="40.0" prefWidth="40.0" styleClass="my-button" stylesheets="@application.css" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="TrajanPro-Bold" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/cogwheel.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets top="-1.0" />
+         </padding>
+      </Button>
+      <Text fx:id="errorText1" fill="#ff1818" layoutX="50.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This category is already taken!" textAlignment="CENTER" visible="false" wrappingWidth="300.0">
+         <font>
+            <Font name="TrajanPro-Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="errorText2" fill="#ff1818" layoutX="50.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have to type a number in between 1 and 13!" textAlignment="CENTER" visible="false" wrappingWidth="300.0">
+         <font>
+            <Font name="TrajanPro-Bold" size="18.0" />
+         </font>
+      </Text>
+      <Pane layoutX="180.0" layoutY="220.0">
+         <children>
+            <Pane fx:id="dice">
+               <children>
+                  <ImageView fitHeight="120.0" fitWidth="120.0" onMouseClicked="#clickDice" onMouseEntered="#OMEnterImage" onMouseExited="#OMExitImage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/questionmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="200.0" onMouseClicked="#clickDice" onMouseEntered="#OMEnterImage" onMouseExited="#OMExitImage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/questionmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="400.0" onMouseClicked="#clickDice" onMouseEntered="#OMEnterImage" onMouseExited="#OMExitImage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/questionmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="600.0" onMouseClicked="#clickDice" onMouseEntered="#OMEnterImage" onMouseExited="#OMExitImage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/questionmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="800.0" onMouseClicked="#clickDice" onMouseEntered="#OMEnterImage" onMouseExited="#OMExitImage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/questionmark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="checkmarks" layoutY="130.0">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../assets/checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../assets/checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="400.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../assets/checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="600.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../assets/checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="800.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../assets/checkmark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="scoreboard" layoutX="115.0" layoutY="416.5" visible="false">
+         <children>
+            <Pane layoutY="33.5" prefHeight="180.0">
+               <children>
+                  <Text fill="WHITE" layoutY="-20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Possible scores with this combination:" textAlignment="CENTER" wrappingWidth="1050.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="18.0" />
+                     </font>
+                  </Text>
+                  <TilePane prefColumns="1" prefHeight="180.0" prefRows="2" prefTileHeight="90.0" prefTileWidth="1050.0" prefWidth="1050.0">
+                     <children>
+                        <TilePane fx:id="table1" prefColumns="0" prefHeight="60.0" prefRows="2" prefTileHeight="30.0" prefTileWidth="175.0" prefWidth="1050.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Aces">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2. Twos">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="3. Threes">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="4. Fours">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="79.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. Fives">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="102.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6. Sixes">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="959.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="95.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="270.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="95.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="270.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="445.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TilePane>
+                        <TilePane fx:id="table2" prefColumns="0" prefHeight="60.0" prefRows="2" prefTileHeight="30.0" prefTileWidth="150.0" prefWidth="1050.0">
+                           <children>
+                              <Text fill="WHITE" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7. Three Of A Kind">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="33.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8. Four Of A Kind">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="56.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9. Full House">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="79.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10. Small Straight">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="102.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11. Large Straight">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="125.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12. Yahtzee">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="263.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13. Chance">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="832.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <font>
+                                    <Font name="TrajanPro-Regular" size="10.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TilePane>
+                     </children>
+                  </TilePane>
+               </children>
+            </Pane>
+            <Pane layoutY="218.5">
+               <children>
+                  <Button fx:id="rerollButton" contentDisplay="CENTER" layoutX="390.0" mnemonicParsing="false" onAction="#reroll" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Reroll!" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="TrajanPro-Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="confirmScoreButton" contentDisplay="CENTER" layoutX="780.0" mnemonicParsing="false" onAction="#confirmScore" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Confirm score!" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="TrajanPro-Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <JFXTextField fx:id="categoryTextField" focusColor="WHITE" prefHeight="40.0" prefWidth="270.0" promptText="Choose category(1-13)" styleClass="my-text-field" stylesheets="@application.css" unFocusColor="#bfbfbf">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="20.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="summaryScoreboard" prefHeight="720.0" prefWidth="1280.0" visible="false">
+         <children>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/black.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scoreboard" textAlignment="CENTER" wrappingWidth="1280.0">
+               <font>
+                  <Font name="TrajanPro-Bold" size="50.0" />
+               </font>
+            </Text>
+            <Pane layoutX="440.0" prefHeight="720.0" prefWidth="400.0">
+               <children>
+                  <Text fill="WHITE" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player" textAlignment="CENTER" wrappingWidth="200.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="24.0" />
+                     </font>
+                  </Text>
+                  <Pane fx:id="summaryPlayersPane" layoutY="188.0" prefHeight="532.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="nameScoreboardLabel" fill="WHITE" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Testplayername" textAlignment="CENTER" wrappingWidth="200.0">
+                           <font>
+                              <Font name="TrajanPro-Regular" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Text fill="WHITE" layoutX="200.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points" textAlignment="CENTER" wrappingWidth="200.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="24.0" />
+                     </font>
+                  </Text>
+                  <Pane fx:id="summaryPointsPane" layoutX="200.0" layoutY="189.0" prefHeight="532.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="pointsScoreboardLabel" fill="WHITE" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="69" textAlignment="CENTER" wrappingWidth="200.0">
+                           <font>
+                              <Font name="TrajanPro-Regular" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="escMenu" prefHeight="720.0" prefWidth="1280.0" visible="false">
+         <children>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/black.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pause Menu" textAlignment="CENTER" wrappingWidth="1280.0">
+               <font>
+                  <Font name="TrajanPro-Bold" size="50.0" />
+               </font>
+            </Text>
+            <Pane layoutX="505.0" layoutY="160.0">
+               <children>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#stopDisplayEscMenu" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Resume" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="TrajanPro-Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button contentDisplay="CENTER" layoutY="60.0" mnemonicParsing="false" onAction="#displayGameLog" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Show Game Log" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="TrajanPro-Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button contentDisplay="CENTER" layoutY="120.0" mnemonicParsing="false" onAction="#saveGame" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Save Game" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="TrajanPro-Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button contentDisplay="CENTER" layoutY="180.0" mnemonicParsing="false" onAction="#loadGame" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Load Game" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="TrajanPro-Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button contentDisplay="CENTER" layoutY="240.0" mnemonicParsing="false" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Options" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="TrajanPro-Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button contentDisplay="CENTER" layoutY="300.0" mnemonicParsing="false" onAction="#loadMainMenu" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Quit to Main Menu" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="TrajanPro-Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button contentDisplay="CENTER" layoutY="360.0" mnemonicParsing="false" onAction="#exitProgram" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Exit Game" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="TrajanPro-Bold" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="gameLog" prefHeight="720.0" prefWidth="1280.0" visible="false">
+         <children>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/black.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Log" textAlignment="CENTER" wrappingWidth="1280.0">
+               <font>
+                  <Font name="TrajanPro-Bold" size="50.0" />
+               </font>
+            </Text>
+            <Button contentDisplay="CENTER" layoutX="505.0" layoutY="633.0" mnemonicParsing="false" onAction="#stopDisplayGameLog" onMouseEntered="#omEnterHighlightButton" onMouseExited="#omExitHighlightButton" prefHeight="40.0" prefWidth="270.0" styleClass="my-button" stylesheets="@application.css" text="Close" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="TrajanPro-Bold" size="20.0" />
+               </font>
+            </Button>
+            <Pane fx:id="gameLogPane" layoutX="90.0" layoutY="131.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" --&gt; Player Major Rolled dice 2 and 5" textAlignment="CENTER" wrappingWidth="1100.0">
+                     <font>
+                        <Font name="TrajanPro-Regular" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
